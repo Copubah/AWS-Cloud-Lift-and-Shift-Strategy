@@ -24,3 +24,10 @@
 
 ## Sample architecture workflow
 ![Architecture](https://miro.medium.com/v2/resize:fit:684/1*v486YCZ6Kuh9VZXDWTuKhQ.png)
+
+## Steps
+1. Log into AWS console and create security groups for the load balancer
+2. Add the inbound rules the required according to your preference
+3. Create another security group for the Tomcat instance,the port range is 8080 and allow traffic from the load balancer only and save it
+4. Create another security group for backend services and add the rules,I will be running MYSQL/Aurora and allow traffic from application security group,MEMCACHE will be running on port 11211 and RabbitMQ on port 5672 
+5. Modify the backend security group to allow all traffic from itself
